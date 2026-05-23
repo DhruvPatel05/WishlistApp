@@ -24,6 +24,8 @@ struct ContentView: View {
             List {
                 ForEach(wishes) { wish in
                     Text(wish.title)
+                        .font(.title.weight(.light))
+                        .padding(.vertical,2)
                 
                 }
             }
@@ -37,7 +39,22 @@ struct ContentView: View {
     }
 }
 
-#Preview {
+#Preview ("Empty List") {
     ContentView()
         .modelContainer(for: Wish.self, inMemory: true)
+}
+#Preview ("List with sample Data") {
+    let container = try! ModelContainer(for: Wish.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true))
+    container.mainContext.insert(Wish(title: "Master SwiftData"))
+    container.mainContext.insert(Wish(title: "Buy a new iphone"))
+    container.mainContext.insert(Wish(title: "Practice latin Dances"))
+    container.mainContext.insert(Wish(title: "Travel to Europe"))
+    container.mainContext.insert(Wish(title: "Make a positive impact"))
+
+
+    
+    return ContentView()
+        .modelContainer(container)
+    
+    
 }
