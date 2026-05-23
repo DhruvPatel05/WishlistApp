@@ -11,7 +11,9 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var wishes: [Wish]
-    
+    @State private var isAlertShowing: Bool = false
+    @State private var title: String = ""
+
     var body: some View {
 //        VStack {
 //            Image(systemName: "globe")
@@ -30,6 +32,26 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Wishlist")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                     Button {
+                         isAlertShowing.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                            .imageScale(.large)
+                    }
+                }
+            }
+            .alert("Create new wish",isPresented: $isAlertShowing) {
+                TextField("Enter a wish", text: $title)
+                Button {
+                    modelContext.insert(Wish(title: title))
+                    title = ""
+                } label : {
+                    Text("Save")
+                }
+                
+            }
             .overlay {
                 if wishes.isEmpty {
                     ContentUnavailableView("My Wishlist", systemImage: "heart.circle",description: Text("No wishes yet. Add one to get started."))
