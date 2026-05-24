@@ -22,8 +22,8 @@ The app demonstrates CRUD operations (Create, Read, Update, Delete) with local p
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="./IMG_7608.PNG" width="220"/>
-  <img src="./IMG_7609.PNG" width="220"/>
+  <img src="ScreenShots/IMG_7608.PNG" width="220"/>
+  <img src="ScreenShots/IMG_7609.PNG" width="220"/>
 </p>
 
 <p align="center">
@@ -35,8 +35,8 @@ The app demonstrates CRUD operations (Create, Read, Update, Delete) with local p
 <br>
 
 <p align="center">
-  <img src="./IMG_7610.PNG" width="220"/>
-  <img src="./IMG_7611.PNG" width="220"/>
+  <img src="ScreenShots/IMG_7610.PNG" width="220"/>
+  <img src="ScreenShots/IMG_7611.PNG" width="220"/>
 </p>
 
 <p align="center">
